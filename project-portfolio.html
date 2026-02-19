@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio Website — Brady Lowe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:ital@0;1&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">BL — UX/UI</a>
+  <ul>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> &nbsp;/&nbsp; <a href="index.html#projects">Projects</a> &nbsp;/&nbsp; Portfolio Website
+</div>
+
+<section class="cs-hero">
+  <span class="cs-label">05 — Design & Development</span>
+  <h1>Personal UX<br><em>Portfolio Website</em></h1>
+  <p class="cs-summary">Designed and built this portfolio site from scratch — two distinct portfolios for two distinct audiences, each with its own visual language, inner project pages, and a shared contact page. A full design + development process in one project.</p>
+  <div class="cs-meta">
+    <div class="meta-item">
+      <span class="meta-label">Role</span>
+      <span class="meta-val">Designer & Developer</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Stack</span>
+      <span class="meta-val">HTML, CSS, JavaScript, Formspree</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Hosting</span>
+      <span class="meta-val">GitHub Pages (Free)</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Deliverables</span>
+      <span class="meta-val">2 portfolios, 7 inner pages, 1 contact page</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<div class="cs-body">
+
+  <div class="cs-section">
+    <div class="cs-section-label">01 — The Problem</div>
+    <h2>Two audiences. Two portfolios. One designer.</h2>
+    <p>The challenge was unusual: I needed to present myself credibly to two completely different hiring audiences — <strong>UX and product design teams</strong> who care about research rigor and design thinking, and <strong>data and analytics teams</strong> who care about analytical skills and business insight.</p>
+    <p>A single generic portfolio would undersell both. The solution: two separate portfolio sites with distinct visual identities, each tailored to its audience — while still feeling like they come from the same person.</p>
+    <div class="highlight-block">
+      <p>"Your portfolio is itself a UX project. Who are the users? What are their goals? What do they need to see in the first 10 seconds to keep reading?"</p>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">02 — Design Strategy</div>
+    <h2>Distinct identities, shared values</h2>
+    <p>Before writing a line of code, I spent time defining what each portfolio needed to communicate at a gut level — not just in content, but in aesthetic feel.</p>
+    <ul class="steps-list">
+      <li>
+        <span class="step-n">UX</span>
+        <div><strong>Dark, refined, editorial</strong> — signals design sophistication, attention to craft, and contemporary visual sensibility. Dark backgrounds read as intentional and confident in design circles. Serif + mono type pairing communicates a mix of humanity and precision.</div>
+      </li>
+      <li>
+        <span class="step-n">DATA</span>
+        <div><strong>Light, structured, authoritative</strong> — signals clarity of thought, professional maturity, and clean communication. An off-white editorial palette with sharp red accents communicates analytical rigor without feeling corporate or cold.</div>
+      </li>
+    </ul>
+    <p>Both sites share the same underlying structural logic — hero, projects, about, contact — but the visual expression, typography, and copy voice are tuned for each audience independently.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">03 — Technical Build</div>
+    <h2>No frameworks. Just HTML, CSS, and JS.</h2>
+    <p>The decision to build without a framework was intentional. Employers reviewing a UX candidate's portfolio code expect to see clean, semantic HTML and well-organized CSS — not a React app that obscures whether you understand the fundamentals.</p>
+    <ul class="steps-list">
+      <li>
+        <span class="step-n">01</span>
+        <div><strong>Shared CSS architecture</strong> A single <code>style.css</code> file powers all inner pages for the UX portfolio — CSS custom properties (variables) ensure visual consistency without repetition across 7+ pages.</div>
+      </li>
+      <li>
+        <span class="step-n">02</span>
+        <div><strong>Mobile-first responsive design</strong> All layouts built mobile-first with CSS Grid and Flexbox. No media query hacks — clean breakpoints at 768px handle the desktop expansion.</div>
+      </li>
+      <li>
+        <span class="step-n">03</span>
+        <div><strong>Formspree contact integration</strong> The contact form posts to Formspree — no backend required, no server costs. Submissions arrive via email and are logged in a Formspree dashboard.</div>
+      </li>
+      <li>
+        <span class="step-n">04</span>
+        <div><strong>GitHub Pages hosting</strong> Both portfolios hosted free on GitHub Pages — giving employers a GitHub profile to review alongside the work, adding credibility in technical hiring contexts.</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">04 — Outcomes</div>
+    <h2>What got built</h2>
+    <div class="outcomes-row">
+      <div class="outcome">
+        <span class="big">2</span>
+        <p>Complete portfolio sites with distinct visual identities</p>
+      </div>
+      <div class="outcome">
+        <span class="big">7</span>
+        <p>Inner project case study pages with full narrative</p>
+      </div>
+      <div class="outcome">
+        <span class="big">1</span>
+        <p>Shared contact page with form + direct links</p>
+      </div>
+      <div class="outcome">
+        <span class="big">$0</span>
+        <p>Monthly hosting cost via GitHub Pages</p>
+      </div>
+    </div>
+    <div class="tag-row">
+      <span class="tag">HTML / CSS / JS</span>
+      <span class="tag">Responsive Design</span>
+      <span class="tag">CSS Variables</span>
+      <span class="tag">Formspree</span>
+      <span class="tag">GitHub Pages</span>
+      <span class="tag">Visual Design</span>
+      <span class="tag">Typography</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="project-nav">
+  <a class="proj-nav-link" href="project-mobile-ux.html">
+    <span class="nav-dir">← Previous</span>
+    <h4>iPhone vs. Android UX Study</h4>
+  </a>
+  <a class="proj-nav-link right" href="index.html#projects">
+    <span class="nav-dir">Back to</span>
+    <h4>All Projects</h4>
+  </a>
+</div>
+
+<footer>
+  <p>© 2026 BRADY LOWE — UX/UI DESIGN</p>
+  <p>METRO DETROIT, MI</p>
+</footer>
+
+</body>
+</html>

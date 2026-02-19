@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brew Haven Coffee Co. — Brady Lowe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:ital@0;1&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">BL — UX/UI</a>
+  <ul>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> &nbsp;/&nbsp; <a href="index.html#projects">Projects</a> &nbsp;/&nbsp; Brew Haven Coffee Co.
+</div>
+
+<section class="cs-hero">
+  <span class="cs-label">02 — Responsive Web Design</span>
+  <h1>Brew Haven<br><em>Coffee Co. Site</em></h1>
+  <p class="cs-summary">Designed and built a fully responsive ordering experience for a fictional café brand from scratch — grounded in persona-driven scenarios, information architecture principles, and a mobile-first approach.</p>
+  <div class="cs-meta">
+    <div class="meta-item">
+      <span class="meta-label">Role</span>
+      <span class="meta-val">UX Designer & Front-End Developer</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Methods</span>
+      <span class="meta-val">Persona Development, IA, Prototyping</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Tools</span>
+      <span class="meta-val">HTML, CSS, JavaScript, Figma</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Context</span>
+      <span class="meta-val">MSU — Web Design & Development</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<div class="cs-body">
+
+  <div class="cs-section">
+    <div class="cs-section-label">01 — The Brief</div>
+    <h2>Design a café experience for real people, not just screens</h2>
+    <p>The challenge: design and build a complete web presence for Brew Haven Coffee Co. — a fictional independent café — that serves three very different user types: the loyal regular ordering their usual, the first-time visitor exploring the menu, and the remote worker scoping out a place to spend the afternoon.</p>
+    <p>Rather than jumping straight to code, the project started with <strong>who</strong> would actually use the site and <strong>what</strong> they needed to accomplish — forcing every design decision through the lens of real user goals.</p>
+    <div class="highlight-block">
+      <p>"The most important design decision on a café site isn't the color palette. It's whether someone can find the menu and the hours in under 10 seconds on their phone while walking down the street."</p>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">02 — Understanding the Users</div>
+    <h2>Three personas, three distinct journeys</h2>
+    <p>Before wireframing a single screen, I developed three user personas based on behaviors common to independent café customers — then mapped each persona to a primary scenario that would drive the information architecture.</p>
+    <ul class="steps-list">
+      <li>
+        <span class="step-n">P1</span>
+        <div><strong>The Regular — Maya, 24</strong> Stops in 4x a week. Needs to see her go-to items fast, check seasonal specials, and find loyalty rewards info. Values speed above all else on mobile.</div>
+      </li>
+      <li>
+        <span class="step-n">P2</span>
+        <div><strong>The Explorer — James, 34</strong> First visit, referred by a friend. Wants to browse the full menu, understand the vibe, and confirm it's worth going out of his way for. Desktop or tablet.</div>
+      </li>
+      <li>
+        <span class="step-n">P3</span>
+        <div><strong>The Worker — Priya, 29</strong> Looking for a spot to set up for 3 hours. Needs to know about WiFi, outlets, noise level, and hours before she commits. Will Google it first, then go straight to the site.</div>
+      </li>
+    </ul>
+    <p>Each persona revealed a different priority for the site hierarchy — which is why the homepage landing view needed to answer all three questions simultaneously without overwhelming any one user type.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">03 — Information Architecture</div>
+    <h2>Deciding what goes where — and why</h2>
+    <p>With three personas and their scenarios mapped out, I drafted a site map and ran a quick card sort exercise with classmates to validate the navigation labels before wireframing. The result was a clean 5-section structure:</p>
+    <div class="findings-grid">
+      <div class="finding-card">
+        <span class="finding-num">Home</span>
+        <h4>Hero + Quick Access</h4>
+        <p>Hours, location, and a direct link to the menu — the three things every persona needs within 5 seconds.</p>
+      </div>
+      <div class="finding-card">
+        <span class="finding-num">Menu</span>
+        <h4>Browsable + Filterable</h4>
+        <p>Full menu with category tabs (drinks, food, seasonal) and clear pricing. No PDFs — fully HTML for accessibility.</p>
+      </div>
+      <div class="finding-card">
+        <span class="finding-num">About</span>
+        <h4>Story + Vibe</h4>
+        <p>Brand story, photos, and the practical info remote workers need: WiFi ✓, outlets ✓, pet-friendly ✓.</p>
+      </div>
+      <div class="finding-card">
+        <span class="finding-num">Order</span>
+        <h4>CTA-Focused</h4>
+        <p>Online pre-order flow with pick-up time selection — streamlined for the regular who wants zero friction.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">04 — Design & Build</div>
+    <h2>Mobile-first, then scale up</h2>
+    <p>All CSS was written mobile-first using a fluid grid with breakpoints at 480px, 768px, and 1200px. Typography scales with <code>clamp()</code> so the reading experience stays comfortable on any device without media query spaghetti.</p>
+    <ul class="steps-list">
+      <li>
+        <span class="step-n">01</span>
+        <div><strong>Low-fi wireframes in Figma</strong> Rough layouts for all 5 pages across mobile and desktop, shared with peers for a quick hallway usability check before any code was written.</div>
+      </li>
+      <li>
+        <span class="step-n">02</span>
+        <div><strong>Design system first</strong> Defined a color palette, type scale, spacing scale, and component library (buttons, cards, nav states) in CSS variables before touching page layouts — preventing inconsistency at scale.</div>
+      </li>
+      <li>
+        <span class="step-n">03</span>
+        <div><strong>Built mobile-first in HTML/CSS/JS</strong> Semantic HTML throughout for accessibility. CSS Grid and Flexbox for layouts. Vanilla JS for the menu tab interaction and a smooth-scroll order flow.</div>
+      </li>
+      <li>
+        <span class="step-n">04</span>
+        <div><strong>Cross-device testing</strong> Tested on physical iOS and Android devices and across Chrome, Safari, and Firefox. Fixed 3 layout bugs found only on real devices that DevTools emulation missed.</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">05 — Outcomes</div>
+    <h2>Results</h2>
+    <div class="outcomes-row">
+      <div class="outcome">
+        <span class="big">100%</span>
+        <p>Task completion across all 3 persona scenarios in peer testing</p>
+      </div>
+      <div class="outcome">
+        <span class="big">&lt;8s</span>
+        <p>Average time to locate hours + menu on mobile</p>
+      </div>
+      <div class="outcome">
+        <span class="big">5</span>
+        <p>Fully responsive pages built from scratch</p>
+      </div>
+      <div class="outcome">
+        <span class="big">A</span>
+        <p>WCAG AA color contrast across all text elements</p>
+      </div>
+    </div>
+    <p>Peer testers consistently completed all tasks without prompting, and several noted that the site "felt like a real café" — which was the highest compliment given the fictional brand constraint.</p>
+    <div class="tag-row">
+      <span class="tag">Persona Development</span>
+      <span class="tag">Information Architecture</span>
+      <span class="tag">HTML / CSS / JS</span>
+      <span class="tag">Mobile-First Design</span>
+      <span class="tag">Figma</span>
+      <span class="tag">Responsive Design</span>
+      <span class="tag">Card Sorting</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="project-nav">
+  <a class="proj-nav-link" href="project-msu-athletics.html">
+    <span class="nav-dir">← Previous</span>
+    <h4>MSU Athletics Redesign</h4>
+  </a>
+  <a class="proj-nav-link right" href="project-accessibility.html">
+    <span class="nav-dir">Next Project →</span>
+    <h4>University Portal Accessibility Audit</h4>
+  </a>
+</div>
+
+<footer>
+  <p>© 2026 BRADY LOWE — UX/UI DESIGN</p>
+  <p>METRO DETROIT, MI</p>
+</footer>
+
+</body>
+</html>

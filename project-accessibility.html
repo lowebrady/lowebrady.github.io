@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Accessibility Audit — Brady Lowe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:ital@0;1&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">BL — UX/UI</a>
+  <ul>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> &nbsp;/&nbsp; <a href="index.html#projects">Projects</a> &nbsp;/&nbsp; Accessibility Audit
+</div>
+
+<section class="cs-hero">
+  <span class="cs-label">03 — Accessibility Research</span>
+  <h1>University Portal<br><em>Accessibility Audit</em></h1>
+  <p class="cs-summary">A systematic WCAG-based audit of a university web portal — screen reader testing, color contrast analysis, empathy mapping, and developer-ready recommendations with clear severity tiers.</p>
+  <div class="cs-meta">
+    <div class="meta-item">
+      <span class="meta-label">Role</span>
+      <span class="meta-val">UX Researcher / Accessibility Analyst</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Methods</span>
+      <span class="meta-val">WCAG Audit, Screen Reader Testing, Empathy Mapping</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Tools</span>
+      <span class="meta-val">NVDA, axe DevTools, Figma, Color Contrast Analyzer</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Context</span>
+      <span class="meta-val">MSU — Evaluating Human-Centered Technology</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<div class="cs-body">
+
+  <div class="cs-section">
+    <div class="cs-section-label">01 — Why Accessibility</div>
+    <h2>Inaccessible tools exclude real people</h2>
+    <p>University portals are not optional — students use them to register for classes, access grades, pay tuition, and communicate with advisors. For students who rely on assistive technology, a poorly built portal isn't just frustrating. It's a barrier to basic academic participation.</p>
+    <p>The goal of this audit was to move beyond assumptions about who uses accessibility features and conduct a <strong>rigorous, evidence-based evaluation</strong> of where the portal failed its users — and produce recommendations clear enough for a developer to act on immediately.</p>
+    <div class="highlight-block">
+      <p>"Accessibility isn't a feature. It's the foundation. Every barrier found in this audit is a real student who can't complete a real task."</p>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">02 — Audit Methodology</div>
+    <h2>Four-part evaluation framework</h2>
+    <p>The audit combined automated scanning with manual testing — because automated tools catch roughly 30–40% of accessibility issues. The rest require human judgment and real assistive technology.</p>
+    <ul class="steps-list">
+      <li>
+        <span class="step-n">01</span>
+        <div><strong>Automated Scan with axe DevTools</strong> Ran axe on 12 key pages to generate a baseline issue list. Flagged 47 violations across missing alt text, invalid ARIA labels, and form input errors.</div>
+      </li>
+      <li>
+        <span class="step-n">02</span>
+        <div><strong>Screen Reader Testing (NVDA + Chrome)</strong> Navigated core user flows — login, course registration, grade lookup — using only a keyboard and NVDA screen reader. Documented every point of confusion or failure with timestamped notes.</div>
+      </li>
+      <li>
+        <span class="step-n">03</span>
+        <div><strong>Color Contrast Analysis</strong> Tested all text and interactive element color combinations against WCAG AA (4.5:1) and AAA (7:1) ratios using the Color Contrast Analyzer tool. Flagged 11 failing combinations on high-traffic pages.</div>
+      </li>
+      <li>
+        <span class="step-n">04</span>
+        <div><strong>Empathy Mapping</strong> Synthesized findings from all testing phases into an empathy map for a screen reader user attempting course registration — surfacing emotional as well as functional pain points.</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">03 — Key Findings</div>
+    <h2>Where the portal fell short</h2>
+    <div class="findings-grid">
+      <div class="finding-card">
+        <span class="finding-num">47</span>
+        <h4>Automated Violations</h4>
+        <p>Found across 12 pages — missing alt text and invalid ARIA roles were the most common categories.</p>
+      </div>
+      <div class="finding-card">
+        <span class="finding-num">11</span>
+        <h4>Contrast Failures</h4>
+        <p>Color combinations below WCAG AA threshold — including the primary navigation links on the homepage.</p>
+      </div>
+      <div class="finding-card">
+        <span class="finding-num">0</span>
+        <h4>Skip Navigation Links</h4>
+        <p>No "skip to main content" links anywhere on the site — keyboard users must tab through the entire nav on every page load.</p>
+      </div>
+      <div class="finding-card">
+        <span class="finding-num">3</span>
+        <h4>Critical Flow Blockers</h4>
+        <p>Course registration, password reset, and grade lookup each had at least one step completely inaccessible via keyboard alone.</p>
+      </div>
+    </div>
+    <p>The screen reader testing revealed a particularly painful issue: the course registration dropdown menus were built with custom JavaScript components that didn't expose their expanded/collapsed state to assistive technology. A screen reader user had no way to know whether clicking had done anything.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">04 — Recommendations</div>
+    <h2>Developer-ready, prioritized by impact</h2>
+    <p>All recommendations were organized into three tiers — <strong>Critical</strong> (fix immediately, blocks access), <strong>High</strong> (fix in next sprint, degrades experience significantly), and <strong>Medium</strong> (fix within quarter, improves quality). Each included the specific page, the WCAG criterion violated, and the exact code change required.</p>
+    <ul class="steps-list">
+      <li>
+        <span class="step-n">🔴</span>
+        <div><strong>[Critical] Add keyboard-accessible states to dropdown menus</strong> Replace custom JS dropdowns with native <code>&lt;select&gt;</code> elements or implement proper ARIA <code>role="listbox"</code> with <code>aria-expanded</code> state management.</div>
+      </li>
+      <li>
+        <span class="step-n">🔴</span>
+        <div><strong>[Critical] Implement skip navigation links</strong> Add a visually hidden "Skip to main content" link as the first focusable element on every page — one line of HTML and a few lines of CSS.</div>
+      </li>
+      <li>
+        <span class="step-n">🟠</span>
+        <div><strong>[High] Fix all contrast failures on nav and body text</strong> Update the primary nav link color from #9B9B9B to #767676 minimum to hit WCAG AA. Provided a full table of compliant replacement values.</div>
+      </li>
+      <li>
+        <span class="step-n">🟠</span>
+        <div><strong>[High] Add descriptive alt text to all functional images</strong> 23 images were missing alt text entirely. Provided a template for writing meaningful alt text for each image type found on the site.</div>
+      </li>
+      <li>
+        <span class="step-n">🟡</span>
+        <div><strong>[Medium] Associate all form labels with inputs explicitly</strong> Multiple form fields relied on placeholder text as the label — which disappears on focus and is not reliably read by screen readers. All inputs need a proper <code>&lt;label for&gt;</code> association.</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">05 — Reflection</div>
+    <h2>What this project changed for me</h2>
+    <p>Before this audit, accessibility felt abstract. After spending hours navigating a university portal with only a keyboard and a screen reader, it became very concrete. I had to re-register for a class three times because the dropdown state wasn't announced. I couldn't complete a password reset without sighted help.</p>
+    <p>That experience fundamentally changed how I approach design. <strong>Accessibility considerations now come into every project from day one</strong>, not as a checklist at the end. Building accessible interfaces isn't harder — it just requires thinking about a wider range of users earlier in the process.</p>
+    <div class="tag-row">
+      <span class="tag">WCAG 2.1</span>
+      <span class="tag">Screen Reader Testing</span>
+      <span class="tag">axe DevTools</span>
+      <span class="tag">Color Contrast Analysis</span>
+      <span class="tag">Empathy Mapping</span>
+      <span class="tag">NVDA</span>
+      <span class="tag">Keyboard Navigation</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="project-nav">
+  <a class="proj-nav-link" href="project-brew-haven.html">
+    <span class="nav-dir">← Previous</span>
+    <h4>Brew Haven Coffee Co.</h4>
+  </a>
+  <a class="proj-nav-link right" href="project-mobile-ux.html">
+    <span class="nav-dir">Next Project →</span>
+    <h4>iPhone vs. Android UX Study</h4>
+  </a>
+</div>
+
+<footer>
+  <p>© 2026 BRADY LOWE — UX/UI DESIGN</p>
+  <p>METRO DETROIT, MI</p>
+</footer>
+
+</body>
+</html>

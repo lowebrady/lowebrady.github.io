@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact — Brady Lowe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:ital@0;1&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0E0E0F;
+      --surface: #161618;
+      --border: #2A2A2D;
+      --text: #EDEAE4;
+      --muted: #7A7772;
+      --accent: #8B7CF6;
+      --accent-warm: #E8A87C;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: rgba(14,14,15,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+    }
+
+    nav ul { list-style: none; display: flex; gap: 2.5rem; }
+    nav a { font-size: 0.875rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    nav a:hover { color: var(--text); }
+
+    /* PAGE LAYOUT */
+    .page {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+    }
+
+    /* LEFT PANEL */
+    .left-panel {
+      padding: 8rem 4rem 4rem 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-right: 1px solid var(--border);
+      position: relative;
+    }
+
+    .left-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(ellipse at 20% 60%, rgba(139,124,246,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .mono-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .left-panel h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 300;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .left-panel h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .left-panel > p {
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.8;
+      max-width: 440px;
+      margin-bottom: 3rem;
+      font-weight: 300;
+    }
+
+    /* DIRECT LINKS */
+    .direct-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .direct-link {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--text);
+      background: var(--surface);
+      transition: all 0.2s;
+      font-size: 0.9rem;
+    }
+
+    .direct-link:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .direct-link .icon {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      width: 2rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .direct-link .link-label {
+      flex: 1;
+    }
+
+    .direct-link .arrow {
+      opacity: 0.3;
+      transition: opacity 0.2s;
+    }
+
+    .direct-link:hover .arrow { opacity: 1; }
+
+    /* AVAILABILITY */
+    .availability {
+      margin-top: 2.5rem;
+      padding: 1.25rem;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .avail-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #4ade80;
+      flex-shrink: 0;
+      box-shadow: 0 0 8px rgba(74,222,128,0.5);
+      animation: pulse 2s ease infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    .avail-text {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .avail-text strong { color: var(--text); font-weight: 500; }
+
+    /* RIGHT PANEL — FORM */
+    .right-panel {
+      padding: 8rem 3rem 4rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .form-heading {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.85rem 1rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.2s;
+      border-radius: 2px;
+      width: 100%;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-group select {
+      appearance: none;
+      cursor: pointer;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237A7772' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
+
+    .form-group select option {
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 140px;
+    }
+
+    .submit-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+      border-radius: 2px;
+      align-self: flex-start;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .submit-btn:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
+
+    .submit-btn:active { transform: translateY(0); }
+
+    /* SUCCESS STATE */
+    .success-message {
+      display: none;
+      background: var(--surface);
+      border: 1px solid #4ade80;
+      padding: 1.5rem;
+      border-radius: 2px;
+      margin-top: 1rem;
+    }
+
+    .success-message p {
+      color: #4ade80;
+      font-size: 0.9rem;
+    }
+
+    /* PORTFOLIOS STRIP */
+    .portfolios-strip {
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      background: var(--surface);
+    }
+
+    .port-link {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .port-link:hover { color: var(--accent); }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 1.5rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      nav ul { gap: 1.25rem; }
+      .page { grid-template-columns: 1fr; }
+      .left-panel {
+        padding: 7rem 1.5rem 3rem;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+      .right-panel { padding: 3rem 1.5rem 4rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .portfolios-strip { gap: 1.5rem; flex-wrap: wrap; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">BL — PORTFOLIO</a>
+  <ul>
+    <li><a href="index.html">UX Portfolio</a></li>
+    <li><a href="../analytics-portfolio/index.html">Analytics Portfolio</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- LEFT: Info + Links -->
+  <div class="left-panel">
+    <span class="mono-label">// Get in Touch</span>
+    <h1>Let's build<br>something <em>great.</em></h1>
+    <p>Open to UX research, UX design, product design, data analyst, and business analyst opportunities. Based in Metro Detroit — open to remote and hybrid roles. Graduating May 2026.</p>
+
+    <div class="direct-links">
+      <a class="direct-link" href="mailto:bradyalowe@icloud.com">
+        <span class="icon">@</span>
+        <span class="link-label">bradyalowe@icloud.com</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="direct-link" href="tel:5862290999">
+        <span class="icon">☏</span>
+        <span class="link-label">(586) 229-0999</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="direct-link" href="https://linkedin.com" target="_blank">
+        <span class="icon">in</span>
+        <span class="link-label">LinkedIn — Brady Lowe</span>
+        <span class="arrow">→</span>
+      </a>
+      <a class="direct-link" href="https://github.com" target="_blank">
+        <span class="icon">&lt;/&gt;</span>
+        <span class="link-label">GitHub — View Code</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+
+    <div class="availability">
+      <div class="avail-dot"></div>
+      <p class="avail-text"><strong>Available for opportunities</strong> — internships & entry-level roles, graduating May 2026</p>
+    </div>
+  </div>
+
+  <!-- RIGHT: Form -->
+  <div class="right-panel">
+    <span class="form-heading">// Send a Message</span>
+
+    <form
+      class="contact-form"
+      action="https://formspree.io/f/xldnnwwa"
+      method="POST"
+      id="contactForm"
+    >
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@company.com" required>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="company">Company / Organization</label>
+        <input type="text" id="company" name="company" placeholder="Acme Corp (optional)">
+      </div>
+
+      <div class="form-group">
+        <label for="interest">I'm reaching out about...</label>
+        <select id="interest" name="interest">
+          <option value="">Select one</option>
+          <option value="ux-role">UX Research / Design Role</option>
+          <option value="data-role">Data / Analytics Role</option>
+          <option value="internship">Internship Opportunity</option>
+          <option value="freelance">Freelance Project</option>
+          <option value="collaboration">Collaboration</option>
+          <option value="other">Something Else</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" placeholder="Tell me a bit about the opportunity or what you have in mind..." required></textarea>
+      </div>
+
+      <input type="hidden" name="_redirect" value="thankyou.html">
+
+      <button type="submit" class="submit-btn">
+        Send Message
+        <span>→</span>
+      </button>
+    </form>
+
+    <div class="success-message" id="successMsg">
+      <p>✓ Message sent! I'll get back to you within 24–48 hours.</p>
+    </div>
+  </div>
+
+</div>
+
+<div class="portfolios-strip">
+  <a class="port-link" href="index.html">← UX / UI Portfolio</a>
+  <span style="font-family: 'Space Mono', monospace; font-size: 0.72rem; color: #2A2A2D;">|</span>
+  <a class="port-link" href="../analytics-portfolio/index.html">Analytics Portfolio →</a>
+</div>
+
+<footer>
+  <p>© 2026 BRADY LOWE</p>
+  <p>METRO DETROIT, MI</p>
+</footer>
+
+<script>
+  // Show success message on form submit (Formspree handles actual submission)
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', function() {
+    setTimeout(() => {
+      document.getElementById('successMsg').style.display = 'block';
+    }, 500);
+  });
+</script>
+
+</body>
+</html>

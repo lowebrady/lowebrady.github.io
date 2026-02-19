@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MSU Athletics Redesign — Brady Lowe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:ital@0;1&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">BL — UX/UI</a>
+  <ul>
+    <li><a href="index.html#projects">Projects</a></li>
+    <li><a href="index.html#about">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a> &nbsp;/&nbsp; <a href="index.html#projects">Projects</a> &nbsp;/&nbsp; MSU Athletics Redesign
+</div>
+
+<section class="cs-hero">
+  <span class="cs-label">01 — Usability Research & Redesign</span>
+  <h1>MSU Athletics<br><em>Website Redesign Study</em></h1>
+  <p class="cs-summary">A full usability evaluation of MSU's Athletics site — from heuristic analysis and user task testing through to redesigned navigation flows that improve accessibility and clarity for every visitor.</p>
+  <div class="cs-meta">
+    <div class="meta-item">
+      <span class="meta-label">Role</span>
+      <span class="meta-val">UX Researcher & Designer</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Methods</span>
+      <span class="meta-val">Heuristic Evaluation, Usability Testing, SUS</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Tools</span>
+      <span class="meta-val">Figma, Google Forms, QDA Miner</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Context</span>
+      <span class="meta-val">MSU — Evaluating Human-Centered Technology</span>
+    </div>
+  </div>
+</section>
+
+<hr class="divider">
+
+<div class="cs-body">
+
+  <div class="cs-section">
+    <div class="cs-section-label">01 — The Problem</div>
+    <h2>A high-traffic site with hidden friction</h2>
+    <p>MSU Athletics serves thousands of fans, students, staff, and prospective student-athletes — each with distinct goals. The existing site had grown organically over years, creating a navigation structure that worked well for insiders but left new users stranded.</p>
+    <p>The core question: <strong>where exactly does the site break down, and for whom?</strong> The goal was to move beyond subjective opinion and ground redesign decisions in real user behavior and measurable data.</p>
+    <div class="highlight-block">
+      <p>"Users consistently knew what they were looking for — tickets, schedules, rosters — but couldn't find them. The information architecture was the culprit, not the content."</p>
+    </div>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">02 — Research Approach</div>
+    <h2>Two-phase evaluation: experts first, users second</h2>
+    <p>The study began with a <strong>heuristic evaluation</strong> using Nielsen's 10 usability heuristics. This let me identify structural issues quickly and cheaply before involving participants, ensuring usability tests would focus on the most impactful areas.</p>
+    <ul class="steps-list">
+      <li>
+        <span class="step-n">01</span>
+        <div><strong>Heuristic Evaluation</strong> Systematically assessed the site against 10 Nielsen heuristics, rating severity on a 0–4 scale. Flagged 14 issues, with navigation consistency and error prevention rated most critical.</div>
+      </li>
+      <li>
+        <span class="step-n">02</span>
+        <div><strong>Task-Based Usability Testing</strong> Recruited 5 participants representing different user archetypes — casual fan, prospective athlete, student, and staff. Each completed 6 structured tasks while thinking aloud.</div>
+      </li>
+      <li>
+        <span class="step-n">03</span>
+        <div><strong>SUS Scoring & Survey</strong> Collected System Usability Scale scores post-test and supplemented with open-ended survey questions to capture emotional responses alongside task metrics.</div>
+      </li>
+      <li>
+        <span class="step-n">04</span>
+        <div><strong>Affinity Mapping</strong> Synthesized all qualitative notes into themes, grouping pain points into navigation, search, mobile, and content hierarchy buckets.</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">03 — Key Findings</div>
+    <h2>Where users got stuck</h2>
+    <p>The SUS average came in at <strong>58/100</strong> — below the industry benchmark of 68, placing it in the "poor" range. Qualitative data told the same story in vivid detail.</p>
+    <div class="findings-grid">
+      <div class="finding-card">
+        <span class="finding-num">58</span>
+        <h4>Average SUS Score</h4>
+        <p>Below the 68-point "okay" threshold — users consistently rated the experience as difficult.</p>
+      </div>
+      <div class="finding-card">
+        <span class="finding-num">4/6</span>
+        <h4>Tasks with Navigation Issues</h4>
+        <p>Most failed or delayed task completions traced back to unclear menu labels and inconsistent nav placement.</p>
+      </div>
+      <div class="finding-card">
+        <span class="finding-num">14</span>
+        <h4>Heuristic Violations Found</h4>
+        <p>Spread across visibility of system status, consistency, and error prevention — all core to daily use.</p>
+      </div>
+      <div class="finding-card">
+        <span class="finding-num">3</span>
+        <h4>Critical Severity Issues</h4>
+        <p>Three violations rated severity 4 (catastrophic): global search failure, mobile nav collapse, and roster lookup.</p>
+      </div>
+    </div>
+    <p>A recurring theme in think-aloud sessions: users expected the homepage to surface current game schedules and ticket links prominently. Instead, these were buried 2–3 levels deep — a mismatch between user mental models and site architecture.</p>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">04 — Design Recommendations</div>
+    <h2>Evidence-backed redesign decisions</h2>
+    <p>Each recommendation maps directly to a specific finding — no guesswork, no aesthetic opinions without data to back them up.</p>
+    <ul class="steps-list">
+      <li>
+        <span class="step-n">↳</span>
+        <div><strong>Restructure the primary navigation</strong> Flatten the hierarchy from 4 levels to 2 for the most-accessed sections. Rename ambiguous labels ("Spartan Experience" → "Fan Guide") based on card sorting insights.</div>
+      </li>
+      <li>
+        <span class="step-n">↳</span>
+        <div><strong>Surface schedules & tickets on the homepage</strong> Add a persistent "Today / Upcoming" widget above the fold that updates automatically — eliminating the #1 pain point across all user types.</div>
+      </li>
+      <li>
+        <span class="step-n">↳</span>
+        <div><strong>Fix global search</strong> Implement a search bar in the fixed header with autocomplete and sport-specific filtering. The current search consistently returned irrelevant results.</div>
+      </li>
+      <li>
+        <span class="step-n">↳</span>
+        <div><strong>Redesign mobile navigation</strong> Replace the collapsed hamburger-within-hamburger pattern with a bottom nav bar for the 5 most-visited sections on mobile.</div>
+      </li>
+      <li>
+        <span class="step-n">↳</span>
+        <div><strong>Standardize roster page templates</strong> Create a consistent template across all sports — currently each sport page has a different layout, confusing users who navigate between them.</div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="cs-section">
+    <div class="cs-section-label">05 — Reflection</div>
+    <h2>What I learned</h2>
+    <p>This project reinforced that <strong>users rarely fail because the content is missing</strong> — it's almost always a discoverability problem. The information was there; the architecture hid it.</p>
+    <p>Running the heuristic evaluation before user testing also proved valuable. It sharpened the task design — I knew exactly which flows to probe — and made the user sessions far more efficient and revealing.</p>
+    <p>If I were to extend this project, I'd prototype the new navigation structure in Figma and run a second round of moderated testing to validate that the changes actually moved the SUS needle before any development work began.</p>
+    <div class="tag-row">
+      <span class="tag">Heuristic Evaluation</span>
+      <span class="tag">Usability Testing</span>
+      <span class="tag">SUS Scoring</span>
+      <span class="tag">Think-Aloud Protocol</span>
+      <span class="tag">Affinity Mapping</span>
+      <span class="tag">Figma</span>
+      <span class="tag">Information Architecture</span>
+    </div>
+  </div>
+
+</div>
+
+<div class="project-nav">
+  <a class="proj-nav-link" href="index.html#projects">
+    <span class="nav-dir">← Back to</span>
+    <h4>All Projects</h4>
+  </a>
+  <a class="proj-nav-link right" href="project-brew-haven.html">
+    <span class="nav-dir">Next Project →</span>
+    <h4>Brew Haven Coffee Co.</h4>
+  </a>
+</div>
+
+<footer>
+  <p>© 2026 BRADY LOWE — UX/UI DESIGN</p>
+  <p>METRO DETROIT, MI</p>
+</footer>
+
+</body>
+</html>

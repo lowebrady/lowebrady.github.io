@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Brady Lowe — UX Design Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300;1,400&family=Space+Mono:ital@0;1&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0E0E0F;
+      --surface: #161618;
+      --border: #2A2A2D;
+      --text: #EDEAE4;
+      --muted: #7A7772;
+      --accent: #8B7CF6;
+      --accent-warm: #E8A87C;
+      --white: #FAFAF9;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 3rem;
+      background: rgba(14,14,15,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    nav a {
+      font-size: 0.875rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+      font-weight: 400;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 3rem 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease both;
+    }
+
+    .hero h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 300;
+      line-height: 1.0;
+      margin-bottom: 2rem;
+      animation: fadeUp 0.6s ease 0.1s both;
+    }
+
+    .hero h1 .italic {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero h1 .warm { color: var(--accent-warm); font-style: italic; }
+
+    .hero-desc {
+      max-width: 560px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      font-weight: 300;
+      animation: fadeUp 0.6s ease 0.2s both;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      animation: fadeUp 0.6s ease 0.3s both;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+      padding: 0.85rem 1.75rem;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: opacity 0.2s, transform 0.2s;
+      border-radius: 2px;
+    }
+
+    .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 0.85rem 1.75rem;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: border-color 0.2s, color 0.2s;
+      border-radius: 2px;
+    }
+
+    .btn-outline:hover { border-color: var(--muted); color: var(--text); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 3rem;
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .hero-scroll::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* SKILLS BAND */
+    .skills-band {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 3rem;
+      display: flex;
+      gap: 3rem;
+      overflow-x: auto;
+    }
+
+    .skill-chip {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.7rem;
+      color: var(--muted);
+      white-space: nowrap;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .skill-chip.hi { color: var(--accent); }
+
+    /* PROJECTS */
+    .projects {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+
+    .mono-label {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 300;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 1px;
+      border: 1px solid var(--border);
+    }
+
+    .project-item {
+      background: var(--surface);
+      padding: 2.5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 80px 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      transition: background 0.25s;
+      cursor: pointer;
+      border-bottom: 1px solid var(--border);
+      color: inherit;
+    }
+
+    .project-item:last-child { border-bottom: none; }
+    .project-item:hover { background: #1C1C1F; }
+
+    .project-index {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+    }
+
+    .project-info h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+    }
+
+    .project-info p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .tag {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      padding: 0.25rem 0.6rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    .project-arrow {
+      font-size: 1.25rem;
+      color: var(--border);
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .project-item:hover .project-arrow {
+      color: var(--accent);
+      transform: translate(3px, -3px);
+    }
+
+    /* PROCESS */
+    .process {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 3rem;
+    }
+
+    .process-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      margin-top: 3rem;
+      background: var(--border);
+    }
+
+    .process-step {
+      background: var(--surface);
+      padding: 2rem;
+    }
+
+    .step-num {
+      font-family: 'Space Mono', monospace;
+      font-size: 2rem;
+      color: var(--border);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .process-step h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.15rem;
+      font-weight: 300;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .process-step p {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ABOUT */
+    .about {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 6rem 3rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 3.5vw, 2.75rem);
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .about p {
+      color: var(--muted);
+      font-size: 0.975rem;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .skill-block {
+      border: 1px solid var(--border);
+      padding: 1.25rem;
+      background: var(--surface);
+    }
+
+    .skill-block h4 {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-block ul {
+      list-style: none;
+    }
+
+    .skill-block li {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 0.2rem 0;
+    }
+
+    /* CONTACT */
+    .contact-section {
+      background: var(--accent);
+      padding: 6rem 3rem;
+      text-align: center;
+    }
+
+    .contact-section .mono-label { color: rgba(255,255,255,0.6); }
+
+    .contact-section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 300;
+      color: white;
+      margin: 1rem 0 1.5rem;
+    }
+
+    .contact-section p {
+      color: rgba(255,255,255,0.75);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+    }
+
+    .contact-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn-white {
+      background: white;
+      color: var(--accent);
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+      border-radius: 2px;
+    }
+
+    .btn-white:hover { opacity: 0.9; }
+
+    .btn-ghost {
+      border: 1px solid rgba(255,255,255,0.4);
+      color: white;
+      padding: 0.9rem 2rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: border-color 0.2s;
+      border-radius: 2px;
+    }
+
+    .btn-ghost:hover { border-color: white; }
+
+    /* FOOTER */
+    footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 2rem 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    footer p {
+      font-family: 'Space Mono', monospace;
+      font-size: 0.72rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      nav ul { gap: 1.5rem; }
+      .hero { padding: 5rem 1.5rem 3rem; }
+      .projects, .about, .process { padding: 4rem 1.5rem; }
+      .about { grid-template-columns: 1fr; gap: 3rem; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .project-item { grid-template-columns: 50px 1fr; }
+      .project-arrow { display: none; }
+      .contact-section { padding: 4rem 1.5rem; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="#">BL — UX/UI</a>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="../analytics-portfolio/index.html">Analytics →</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">UX / UI Design Portfolio</p>
+    <h1>
+      Brady Lowe —<br>
+      <span class="italic">designing for</span><br>
+      <span class="warm">real people.</span>
+    </h1>
+    <p class="hero-desc">Rising senior at Michigan State University. I research, test, and design user experiences that actually work — grounded in empathy, evidence, and clear thinking.</p>
+    <div class="hero-btns">
+      <a class="btn-primary" href="#projects">See My Work</a>
+      <a class="btn-outline" href="#contact">Let's Talk</a>
+    </div>
+    <div class="hero-scroll">SCROLL TO EXPLORE</div>
+  </section>
+
+  <!-- SKILLS BAND -->
+  <div class="skills-band">
+    <span class="skill-chip hi">// CAPABILITIES</span>
+    <span class="skill-chip">Usability Testing</span>
+    <span class="skill-chip">Heuristic Evaluation</span>
+    <span class="skill-chip">User Interviews</span>
+    <span class="skill-chip">Figma</span>
+    <span class="skill-chip">Wireframing</span>
+    <span class="skill-chip">Information Architecture</span>
+    <span class="skill-chip">HTML / CSS / JS</span>
+    <span class="skill-chip">QDA Miner</span>
+    <span class="skill-chip">Survey Design</span>
+    <span class="skill-chip">Accessibility Auditing</span>
+    <span class="skill-chip">Persona Development</span>
+  </div>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects">
+    <div class="section-top">
+      <div>
+        <p class="mono-label">// SELECTED WORK</p>
+        <h2 class="section-h2">UX Projects</h2>
+      </div>
+    </div>
+
+    <div class="project-list">
+
+      <a class="project-item" href="project-msu-athletics.html" style="text-decoration:none;">
+        <span class="project-index">01</span>
+        <div class="project-info">
+          <h3>MSU Athletics Website Redesign Study</h3>
+          <p>Led a full usability evaluation of the MSU Athletics site — heuristic analysis, user task testing, and SUS scoring — then redesigned core navigation flows to improve accessibility and clarity for all user types.</p>
+          <div class="tags">
+            <span class="tag">Heuristic Evaluation</span>
+            <span class="tag">Usability Testing</span>
+            <span class="tag">Figma</span>
+            <span class="tag">Accessibility</span>
+            <span class="tag">SUS Scoring</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a class="project-item" href="project-brew-haven.html" style="text-decoration:none;">
+        <span class="project-index">02</span>
+        <div class="project-info">
+          <h3>Brew Haven Coffee Co. — Responsive Site</h3>
+          <p>Designed and built a fully responsive ordering experience for a fictional café brand from scratch. Grounded in persona-driven scenarios and information architecture principles, with an emphasis on mobile-first usability.</p>
+          <div class="tags">
+            <span class="tag">HTML / CSS</span>
+            <span class="tag">Responsive Design</span>
+            <span class="tag">Information Architecture</span>
+            <span class="tag">Persona Scenarios</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a class="project-item" href="project-accessibility.html" style="text-decoration:none;">
+        <span class="project-index">03</span>
+        <div class="project-info">
+          <h3>University Portal Accessibility Audit</h3>
+          <p>Audited a university portal against WCAG standards using screen reader testing and color contrast analysis. Documented pain points through empathy mapping and produced developer-ready recommendations with clear priority tiers.</p>
+          <div class="tags">
+            <span class="tag">Screen Reader Testing</span>
+            <span class="tag">WCAG Standards</span>
+            <span class="tag">Color Contrast Analysis</span>
+            <span class="tag">Empathy Mapping</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a class="project-item" href="project-mobile-ux.html" style="text-decoration:none;">
+        <span class="project-index">04</span>
+        <div class="project-info">
+          <h3>iPhone vs. Android — Mobile UX Research Study</h3>
+          <p>Led a qualitative research study comparing content creator preferences between iOS and Android. Conducted user interviews, coded themes with QDA Miner, and presented findings in a pitch-style format with UX design recommendations.</p>
+          <div class="tags">
+            <span class="tag">Qualitative Research</span>
+            <span class="tag">QDA Miner</span>
+            <span class="tag">Thematic Coding</span>
+            <span class="tag">User Interviews</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+      <a class="project-item" href="project-portfolio.html" style="text-decoration:none;">
+        <span class="project-index">05</span>
+        <div class="project-info">
+          <h3>Personal UX Portfolio Website</h3>
+          <p>Designed and built this portfolio — a responsive, multi-page site using HTML, CSS, and JavaScript with mobile-first principles. Integrated Formspree for contact, implemented CSS animations, and applied UX best practices throughout.</p>
+          <div class="tags">
+            <span class="tag">HTML / CSS / JS</span>
+            <span class="tag">Responsive Design</span>
+            <span class="tag">Mobile-First</span>
+            <span class="tag">Formspree API</span>
+          </div>
+        </div>
+        <div class="project-arrow">↗</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process">
+    <div class="process-inner">
+      <p class="mono-label">// HOW I WORK</p>
+      <h2 class="section-h2">My Design Process</h2>
+      <div class="process-grid">
+        <div class="process-step">
+          <span class="step-num">01</span>
+          <h3>Discover</h3>
+          <p>User interviews, surveys, and competitive analysis to deeply understand the problem space before any design begins.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">02</span>
+          <h3>Define</h3>
+          <p>Synthesize findings through affinity mapping, personas, and empathy maps to align on the real user needs.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">03</span>
+          <h3>Design</h3>
+          <p>Wireframes, information architecture, and high-fidelity prototypes in Figma — tested early and often.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-num">04</span>
+          <h3>Evaluate</h3>
+          <p>Heuristic evaluation, usability testing, SUS scoring, and accessibility audits to validate and iterate.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div>
+      <p class="mono-label">// ABOUT ME</p>
+      <h2>Researcher. Designer. Builder.</h2>
+      <p>I'm Brady Lowe — a rising senior at Michigan State University studying Information Science. I came to UX through a mix of psychology, technology, and a genuine curiosity about why some products feel effortless and others feel like work.</p>
+      <p>I've run usability studies, built responsive websites from scratch, and conducted qualitative research studies — all while holding down a freelance design practice and serving as VP of my chapter. I'm at my best when problems are messy and the user is at the center.</p>
+      <p>Currently seeking UX research, UX design, or product design opportunities after graduating in May 2026.</p>
+    </div>
+    <div>
+      <div class="skills-grid">
+        <div class="skill-block">
+          <h4>Research</h4>
+          <ul>
+            <li>User Interviews</li>
+            <li>Usability Testing</li>
+            <li>Survey Design</li>
+            <li>Heuristic Evaluation</li>
+            <li>QDA Miner</li>
+          </ul>
+        </div>
+        <div class="skill-block">
+          <h4>Design</h4>
+          <ul>
+            <li>Figma</li>
+            <li>Wireframing</li>
+            <li>HTML / CSS / JS</li>
+            <li>Adobe Creative Suite</li>
+            <li>Canva</li>
+          </ul>
+        </div>
+        <div class="skill-block">
+          <h4>Frameworks</h4>
+          <ul>
+            <li>Design Thinking</li>
+            <li>WCAG Accessibility</li>
+            <li>Info Architecture</li>
+            <li>Empathy Mapping</li>
+            <li>Persona Development</li>
+          </ul>
+        </div>
+        <div class="skill-block">
+          <h4>Education</h4>
+          <ul>
+            <li>Michigan State Univ.</li>
+            <li>B.A. Information Science</li>
+            <li>GPA: 3.05</li>
+            <li>May 2026</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <p class="mono-label">// GET IN TOUCH</p>
+    <h2>Let's build something great.</h2>
+    <p>Open to UX research, UX design, and product design roles. Based in Metro Detroit — open to remote and hybrid opportunities.</p>
+    <div class="contact-btns">
+      <a class="btn-white" href="mailto:bradyalowe@icloud.com">Email Me</a>
+      <a class="btn-ghost" href="https://linkedin.com" target="_blank">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 BRADY LOWE — UX/UI DESIGN</p>
+    <p>EAST LANSING / METRO DETROIT, MI</p>
+  </footer>
+
+</body>
+</html>
